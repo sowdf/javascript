@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    ul { width:330px; margin:100px auto; position:relative; }
+    ul li { list-style:none; float:left; width:100px; height:100px; background:red; margin:10px 0 0 10px; }
+</style>
+<script src="startMove.js"></script>
+<script>
+    window.onload = function(){
+        var oUl = document.getElementById('ul1');
+        var aLi = oUl.getElementsByTagName('li');
+        /*
+        * 存在的问题
+        * 要使视觉保持一致
+        * position优先解析问题 同一块内
+        * offsetLeft 问题
+        * 要使放大的时候位置不变，left,top 增加宽高的一半
+        * */
+        var arr = [];
+        var zIndex = 1;
+        for(var i=0; i<aLi.length; i++){
+            arr.push({left:aLi[i].offsetLeft,top:aLi[i].offsetTop})
+        }
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].style.left = arr[i].left + 'px';
+            aLi[i].style.top = arr[i].top + 'px';
+            aLi[i].style.position = 'absolute';
+            //位置变动重置margin
+            aLi[i].style.margin = 0;
+            aLi[i].onmouseover = function(){
+                this.style.zIndex = zIndex++;
+                this.style.background = 'green';
+                startMove(this,{
+                    width : 200,
+                    height :200,
+                    left : arr[this.index].left - 50,
+                    top : arr[this.index].top - 50
+                });
+            }
+            aLi[i].onmouseout = function(){
+                this.style.background = 'red';
+                startMove(this,{
+                    width : 100,
+                    height :100,
+                    left : arr[this.index].left,
+                    top : arr[this.index].top
+                });
+            }
+        }
+    }
+</script>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

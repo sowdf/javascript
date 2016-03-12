@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    div{ width:100px; height:100px; position:absolute; top:0; left:800px; background:red; }
+</style>
+<script>
+    window.onload = function(){
+        var oDiv = document.getElementById('div1');
+        oDiv.onclick = function(){
+            var timer = null;
+            timer = setInterval(function(){
+                var iSpeed = (500 - oDiv.offsetLeft) * 0.3;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if( oDiv.offsetLeft == 500){
+                    clearInterval(timer);
+                }
+                oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+            },30);
+        }
+    }
+</script>
+<body>
+    <div id="div1">
+
+    </div>
+</body>
+</html>
