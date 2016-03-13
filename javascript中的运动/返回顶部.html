@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<style>
+    div { width:100px; height:100px; border-radius:50%; background:red; position:absolute; right:0; top:0; }
+
+</style>
+<script>
+    window.onload = function(){
+        var oDiv = document.getElementById('top');
+        var iTimer = null;
+        var b = 0;
+        setTop();
+        window.onscroll = function(){
+
+            if( b != 1){//如果b=1那么，当前的scroll事件是被定时器所触发，如果不等于1，那么就是非定时器的其他任何一个操作触发该事件
+                clearInterval(iTimer);
+            }
+            b = 2;
+            setTop();
+        }
+        oDiv.onclick = function(){
+            clearInterval(iTimer);
+            var iCur = iSpeed = 0;
+
+
+            iTimer = setInterval(function(){
+                iCur = document.documentElement.scrollTop || document.body.scrollTop;
+                iSpeed = Math.floor(( 0 - iCur ) / 8 );
+                if(iCur == 0){
+                    clearInterval(iTimer);
+                }else{
+                    document.documentElement.scrollTop = document.body.scrollTop = iCur + iSpeed;
+                }
+                b = 1;
+            },30)
+
+        }
+        function setTop(){
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            oDiv.style.top = document.documentElement.clientHeight - oDiv.offsetHeight + scrollTop + 'px';
+        }
+    }
+</script>
+<body style="height:2000px">
+<div id="top">
+
+</div>
+</body>
+</html>
