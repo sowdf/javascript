@@ -1,0 +1,33 @@
+父级 操作子元素
+
+oIframe.contentWindow;  谷歌不可以 服务器环境才行 获取子页面的window对象
+
+
+oIframe.contentDocument;  直接操作 document  IE67不支持
+
+iframe里面操作 父级页面
+
+
+window.parent
+
+window.top
+
+
+iFrame加载完会有一个onload事件
+
+
+var oIframe = document.createElement('iframe');
+oIframe.src = '';
+
+oIframe.onload = function(){
+
+} // ie下无效
+IE下只能用绑定的形式
+oIframe.attachEvent('onload',function(){
+
+});
+
+
+钓鱼
+
+改变iframe的大小
