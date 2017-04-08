@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width:100px;
+            height:100px;
+            background:red;
+            position:relative;
+        }
+        .div1 {
+            background:blue;
+        }
+        .div2 {
+            background:yellow;
+        }
+        .div3 {
+            background:pink;
+        }
+    </style>
+</head>
+
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+<div class="div3"></div>
+</body>
+</html>
+<script src="../js/src/TweenMax.js"></script>
+<script>
+    var tl = new TimelineLite();
+    var tween = TweenLite.to('.div1', 1, {x:100}); //create a 1-second tween
+    tl.add(tween, 0.5); //insert the tween at 0.5 seconds into the timeline
+    console.log(tween.endTime()); //1.5
+    tween.timeScale(3); //double the speed of the tween, thus it'll finish in half the normal time
+    console.log(tween.endTime()); //1
+</script>

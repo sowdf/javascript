@@ -1,0 +1,36 @@
+to
+    接受4个参数
+    对象 时间 变化属性{} 动画延迟发生的时间 有延迟时间按延迟时间执行 没有延迟时间 依次执行
+    如果延迟时间相同则同时执行  +=1（延迟1秒）
+stop
+    停止  上来可以停止动画
+play
+    播放
+reverse
+    反向动画
+onComplete
+    正向运动结束后回调
+    {'width':'100px',onComplete:function(){}}
+onReverseComplete
+    反向运动结束后的回调
+     {'width':'100px',onReverseComplete:function(){}}
+
+add
+    添加状态 添加函数
+TweenTo
+    完成指点动画 有过度效果
+    t.TweenTo(1) 指点到1秒钟的位置
+    t.TweenTo('state1') 到状态1
+seek
+    指定的时间，状态
+    无过度效果
+    第二个参数是否执行回调函数  true 表示不执行  false 执行
+
+
+time
+    获取动画已执行的时间
+
+clear
+
+
+    totationZ

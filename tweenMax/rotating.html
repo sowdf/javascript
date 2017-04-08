@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        !function(a) { function b() { var v = document.documentElement.clientHeight / ( 1092 / 40 ); var h = a.navigator.appVersion.match(/iphone/gi) ? v +2 : v + 1; f.style.fontSize = h + "px"; } var c, d = a.navigator.appVersion.match(/iphone/gi) ? a.devicePixelRatio : 1, e = 1 / d, f = document.documentElement, g = document.createElement("meta"); if (a.dpr = d, a.addEventListener("resize", function() { clearTimeout(c), c = setTimeout(b, 300) }, !1), a.addEventListener("pageshow", function(a) { a.persisted && (clearTimeout(c), c = setTimeout(b, 300)) }, !1), f.setAttribute("data-dpr", d), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + e + ", maximum-scale=" + e + ", minimum-scale=" + e + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g); else { var h = document.createElement("div"); h.appendChild(g), document.write(h.innerHTML) } b() }(window);
+    </script>
+</head>
+<style>
+    div {
+        width:2rem;
+        height:2rem;
+        background:red;
+        display:inline-block;
+        position:relative;
+    }
+    div:nth-of-type(2n) {
+        background:blue;
+    }
+    div:nth-of-type(2n + 1) {
+        background:yellow;
+    }
+</style>
+<body>
+<a href="http://www.htmleaf.com/Demo/201501061113.html">3321312</a>
+
+
+</body>
+</html>
+<script src="./js/src/TweenMax.js"></script>
+<script>
+    var oDiv = document.getElementsByClassName('j-div');
+    var tween = new TimelineMax();
+    tween.staggerTo(oDiv,1,{rotationZ:720,top:'10rem'},1);
+</script>
