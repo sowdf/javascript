@@ -35,7 +35,7 @@ DealImages.prototype.readAllImages = function(){
 
 DealImages.prototype.filterImages = function(data){
 
-    let formatAry = ['bmp','png','jpeg','gif']
+    let formatAry = ['bmp','png','jpeg','gif'];
 
     let newAry = [];
 
